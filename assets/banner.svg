@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c16" />
+      <stop offset="50%" stop-color="#0d1527" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="35%" stop-color="#818cf8" />
+      <stop offset="70%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <linearGradient id="purple-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <linearGradient id="stream-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="1" />
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Filters for Glow Effects -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="text-shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+
+    <style>
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.65; transform: scale(1.08); }
+      }
+      @keyframes streamFlow {
+        0% { stroke-dashoffset: 400; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes floatDelayed {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(7px); }
+      }
+      @keyframes chipPulse {
+        0%, 100% { opacity: 0.85; border-color: #38bdf8; }
+        50% { opacity: 1; border-color: #c084fc; }
+      }
+
+      .glow-orb-1 {
+        transform-origin: 200px 100px;
+        animation: pulseGlow 8s ease-in-out infinite;
+      }
+      .glow-orb-2 {
+        transform-origin: 1000px 300px;
+        animation: pulseGlow 10s ease-in-out infinite reverse;
+      }
+      .flow-line {
+        stroke-dasharray: 80 120;
+        animation: streamFlow 5s linear infinite;
+      }
+      .flow-line-reverse {
+        stroke-dasharray: 60 140;
+        animation: streamFlow 7s linear infinite reverse;
+      }
+      .chip-badge-1 {
+        animation: floatSlow 6s ease-in-out infinite;
+      }
+      .chip-badge-2 {
+        animation: floatDelayed 5.5s ease-in-out infinite;
+      }
+      .chip-badge-3 {
+        animation: floatSlow 7s ease-in-out infinite 1s;
+      }
+      .chip-badge-4 {
+        animation: floatDelayed 6.5s ease-in-out infinite 1.5s;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="400" fill="url(#bg-grad)" rx="16" />
+
+  <!-- Grid Pattern Overlay -->
+  <g opacity="0.12">
+    <path d="M0 40 H1200 M0 80 H1200 M0 120 H1200 M0 160 H1200 M0 200 H1200 M0 240 H1200 M0 280 H1200 M0 320 H1200 M0 360 H1200" stroke="#38bdf8" stroke-width="1" />
+    <path d="M60 0 V400 M120 0 V400 M180 0 V400 M240 0 V400 M300 0 V400 M360 0 V400 M420 0 V400 M480 0 V400 M540 0 V400 M600 0 V400 M660 0 V400 M720 0 V400 M780 0 V400 M840 0 V400 M900 0 V400 M960 0 V400 M1020 0 V400 M1080 0 V400 M1140 0 V400" stroke="#818cf8" stroke-width="1" />
+  </g>
+
+  <!-- Ambient Pulsing Glow Orbs (Strictly in Background) -->
+  <circle class="glow-orb-1" cx="220" cy="120" r="160" fill="url(#cyan-glow)" filter="url(#glow)" />
+  <circle class="glow-orb-2" cx="980" cy="280" r="180" fill="url(#purple-glow)" filter="url(#glow)" />
+
+  <!-- Animated Neural / Accelerator Circuit Paths (Background / Side Flanks) -->
+  <g opacity="0.6">
+    <!-- Left Circuit Web -->
+    <path class="flow-line" d="M -50 80 Q 150 60 220 160 T 120 280 T 260 380" fill="none" stroke="url(#stream-grad)" stroke-width="2.5" />
+    <path class="flow-line-reverse" d="M 50 390 Q 160 260 200 180 T 80 50" fill="none" stroke="#a855f7" stroke-width="1.8" />
+    <circle cx="220" cy="160" r="4" fill="#38bdf8" filter="url(#soft-glow)" />
+    <circle cx="120" cy="280" r="3.5" fill="#c084fc" />
+
+    <!-- Right Circuit Web -->
+    <path class="flow-line" d="M 1250 320 Q 1050 340 980 240 T 1080 120 T 940 20" fill="none" stroke="url(#stream-grad)" stroke-width="2.5" />
+    <path class="flow-line-reverse" d="M 1150 10 Q 1040 140 1000 220 T 1120 350" fill="none" stroke="#38bdf8" stroke-width="1.8" />
+    <circle cx="980" cy="240" r="4" fill="#818cf8" filter="url(#soft-glow)" />
+    <circle cx="1080" cy="120" r="3.5" fill="#38bdf8" />
+  </g>
+
+  <!-- Floating Hardware Acceleration Badges on Side Perimeters -->
+  <g class="chip-badge-1" transform="translate(60, 110)">
+    <rect width="110" height="34" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" opacity="0.9" />
+    <text x="55" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle">⚡ CUDA / TensorRT</text>
+  </g>
+
+  <g class="chip-badge-2" transform="translate(50, 240)">
+    <rect width="115" height="34" rx="8" fill="#0f172a" stroke="#818cf8" stroke-width="1.2" opacity="0.9" />
+    <text x="57" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#a5b4fc" text-anchor="middle">🧩 ONNX Runtime</text>
+  </g>
+
+  <g class="chip-badge-3" transform="translate(1030, 95)">
+    <rect width="115" height="34" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1.2" opacity="0.9" />
+    <text x="57" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#d8b4fe" text-anchor="middle">🚀 vLLM / SGLang</text>
+  </g>
+
+  <g class="chip-badge-4" transform="translate(1020, 235)">
+    <rect width="125" height="34" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" opacity="0.9" />
+    <text x="62" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#7dd3fc" text-anchor="middle">⚙️ OpenVINO / TVM</text>
+  </g>
+
+  <!-- Foreground Center Content Protective Plate -->
+  <rect x="220" y="45" width="760" height="310" rx="20" fill="#080c16" fill-opacity="0.82" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Center Top Tag -->
+  <g transform="translate(600, 85)">
+    <rect x="-140" y="-14" width="280" height="28" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2" />
+    <circle cx="-116" cy="0" r="5" fill="#22c55e" filter="url(#soft-glow)" />
+    <text x="-104" y="4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#a5b4fc" letter-spacing="1">CURATED INFERENCE ECOSYSTEM</text>
+  </g>
+
+  <!-- Main Title (Strict Foreground with High Contrast & Filter Shadow) -->
+  <text x="600" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="900" text-anchor="middle" fill="url(#title-grad)" filter="url(#text-shadow)" letter-spacing="-0.5">
+    Awesome ML Inference Engines
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="500" text-anchor="middle" fill="#cbd5e1" filter="url(#text-shadow)">
+    Hardware Compilers • Cross-Platform Execution • Edge Silicon • Cloud Serving
+  </text>
+
+  <!-- Feature Pills in Center Card -->
+  <g transform="translate(265, 245)">
+    <!-- Pill 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="150" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1.2" />
+      <text x="75" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#38bdf8" text-anchor="middle">⚡ Ultra-Low Latency</text>
+    </g>
+    <!-- Pill 2 -->
+    <g transform="translate(165, 0)">
+      <rect width="165" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1.2" />
+      <text x="82" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#818cf8" text-anchor="middle">🔥 High Token Throughput</text>
+    </g>
+    <!-- Pill 3 -->
+    <g transform="translate(345, 0)">
+      <rect width="150" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1.2" />
+      <text x="75" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#c084fc" text-anchor="middle">🧩 Cross-Hardware EPs</text>
+    </g>
+    <!-- Pill 4 -->
+    <g transform="translate(510, 0)">
+      <rect width="160" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1.2" />
+      <text x="80" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#f472b6" text-anchor="middle">🔋 Edge, NPU &amp; Mobile</text>
+    </g>
+  </g>
+
+  <!-- Micro Footer inside Banner Card -->
+  <text x="600" y="325" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#64748b">
+    Open-Source Compilers • Hosted Serverless Runetimes • Quantization &amp; Kernel Fusion
+  </text>
+</svg>
